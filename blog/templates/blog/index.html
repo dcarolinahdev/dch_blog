@@ -4,11 +4,17 @@
   <main>
     {% for post in posts %}
       <article>
-        <time>published: {{ post.published_date }}</time>
-        <h2><a href="#">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <p>{{ post.comments.count }} comment(s)</p>
-        <!--<p><i class="bi bi-hand-thumbs-up"></i></p>-->
+        <div class="post">
+          <div class="d-flex flex-column">
+            <a href="#" class="title">{{ post.title }}</a>
+            <time>published: {{ post.published_date }}</time>
+          </div>
+          <p>{{ post.text }}</p>
+        </div>
+        
+        <div class="rcomments">
+          <p>{{ post.comments.count }} comment(s)</p>
+        </div>
       </article>
     {% empty %}
       <div class="empty-posts">No posts are available.</div>
